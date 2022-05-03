@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           <div className='button'>
             <Link to={"#"}>
               <MdOutlineListAlt size={20} />
-              <p>New Project</p>
+              <p>My Projects</p>
             </Link>
           </div>
           <div className="button">
