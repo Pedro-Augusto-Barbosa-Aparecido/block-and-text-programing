@@ -14,29 +14,33 @@ export type MenuProps = {
 const Menu: React.FC<MenuProps> = ({ fileAndFolders = [] }) => {
   const [shrink, setShrink] = useState<boolean>(true);
 
-  return <Container shrink={shrink}>
-      <div className='button-menu-control'>
-        {
-            shrink ? <MdMenu className='hover' size={30} color="rgba(20, 20, 255, .7)" onClick={() => setShrink(state => !state)} /> : 
-                <BsFillArrowLeftSquareFill className='hover' size={30} color="rgba(20, 20, 255, .7)" onClick={() => setShrink(state => !state)} />
-        }
-        <div className='button-file-control'>
-          <div>
-            <VscNewFile className='hover' size={20} />
-            <p>New File</p>
+  return (
+      <Container shrink={shrink}>
+          <div className='button-menu-control'>
+            {
+                shrink ? <MdMenu className='hover' size={30} color="rgba(20, 20, 255, .7)" onClick={() => setShrink(state => !state)} /> : 
+                    <BsFillArrowLeftSquareFill className='hover' size={30} color="rgba(20, 20, 255, .7)" onClick={() => setShrink(state => !state)} />
+            }
+            <div className='button-file-control'>
+              <div>
+                <VscNewFile className='hover' size={20} />
+                <p>New File</p>
+              </div>
+              <div>
+                <VscNewFolder className='hover' size={20} />
+                <p>New Folder</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <VscNewFolder className='hover' size={20} />
-            <p>New Folder</p>
-          </div>
-        </div>
-      </div>
-      <ul>
-        {
-          fileAndFolders.length === 0 ? <p>No File or Project selected</p> : fileAndFolders.map((item, key) => <p key={key}>{item}</p>)
-        }
-      </ul>
-  </Container>;
+          <ul>
+            {
+              fileAndFolders.length === 0 ? <p id="no-data">
+                No File or Project selected
+              </p> : fileAndFolders.map((item, key) => <p key={key}>{item}</p>)
+            }
+          </ul>
+      </Container>
+  );
 }
 
 export default Menu;

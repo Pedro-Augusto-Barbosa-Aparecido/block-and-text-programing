@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface MenuProps {
-    shrink: boolean;
+    shrink?: boolean;
 
 }
 
@@ -13,7 +13,7 @@ export const Container = styled.div<MenuProps>`
     height: 100%;
     ${props => props.shrink ? css`width: 60px !important;` : css`width: 400px !important;`}
 
-    overflow: hidden;
+    ${props => props.shrink ? css`overflow: hidden;` : ""}
 
     div.button-menu-control {
         padding-left: 15px;
@@ -35,7 +35,7 @@ export const Container = styled.div<MenuProps>`
         justify-content: flex-end;
         align-items: center;
 
-        width: 80%;
+        width: 300px;
         height: 100%;
 
         padding-right: 0;
@@ -70,6 +70,37 @@ export const Container = styled.div<MenuProps>`
             }
 
         }
+
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        margin-top: 15px;
+
+        overflow: hidden;
+
+    }
+
+    p[id=no-data] {
+        height: 50px;
+        width: 100%;
+
+        color: #726b6b;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 5px;
+
+        text-align: center;
+
+        ${props => props.shrink ? css`visibility: hidden;`: css`visibility: visible;`}
 
     }
 
