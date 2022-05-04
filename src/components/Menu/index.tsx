@@ -12,7 +12,7 @@ export type MenuProps = {
 };
 
 const Menu: React.FC<MenuProps> = ({ fileAndFolders = [] }) => {
-  const [shrink, setShrink] = useState<boolean>(true);
+  const [shrink, setShrink] = useState<boolean>(false);
 
   return (
       <Container shrink={shrink}>
